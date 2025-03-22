@@ -107,11 +107,11 @@ export default function WebTerm() {
     return (
         <div className="fixed inset-0 flex items-center justify-center">
             {/* Terminal Window */}
-            <div className="flex flex-col w-[700px] h-[475px] rounded-lg overflow-hidden border border-emerald-300 shadow-xl backdrop-blur-xs bg-white/10">
+            <div className="flex flex-col w-[700px] h-[475px] rounded-lg overflow-hidden border border-emerald-800 shadow-xl bg-black/10 backdrop-blur-xs">
 
                 {/* Title Bar */}
-                <div className="h-10 flex items-center justify-center border-b border-emerald-300 bg-black/20 backdrop-blur-2xl">
-                    <span className="text-green-700 font-mono select-none">Terminal</span>
+                <div className="h-10 flex items-center justify-center border-b border-emerald-800 bg-black/20 backdrop-blur-2xl">
+                    <span className="text-green-500 font-inter text-xl select-none">Terminal</span>
                 </div>
 
                 {/* Terminal Container */}
