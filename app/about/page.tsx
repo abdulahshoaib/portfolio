@@ -28,11 +28,11 @@ export default function AboutPage() {
                                 <h3 className=" text-xl font-semibold mb-2">Education</h3>
                             </div>
                             <div className="space-y-2">
-                                <div className="bg-emerald-500/10 p-3 rounded-md">
+                                <div className="bg-white/10 p-3 rounded-md">
                                     <h4 className="font-semibold">Bachelor of Computer Science</h4>
                                     <p className="text-sm text-muted-foreground">FAST NUCES, 2023-Present</p>
                                 </div>
-                                <div className="bg-emerald-500/10 p-3 rounded-md">
+                                <div className="bg-white/10 p-3 rounded-md">
                                     <h4 className="font-semibold">High School Secondary Certificate, Engineering</h4>
                                     <p className="text-sm text-muted-foreground">Crecent Model High School, 2020-2022</p>
                                     <p className="text-xs text-muted-foreground">Grade: A*</p>

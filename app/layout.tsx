@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "@fontsource/jetbrains-mono";
-import ParticleBackground from "@/components/ParticleBackground"
+import MatrixBackground from "@/components/MatrixBackground"
 import Navbar from '@/components/Navbar'
 
 const geistSans = Geist({
@@ -31,7 +31,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`} >
-                <ParticleBackground />
+                <MatrixBackground />
                 <Navbar />
                 {children}
             </body>

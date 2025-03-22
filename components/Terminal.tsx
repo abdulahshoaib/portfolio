@@ -1,5 +1,7 @@
 "use client"
+
 import { useEffect, useRef, useState } from "react"
+import { useRouter } from "next/navigation"
 import { Terminal } from "xterm"
 import { FitAddon } from "xterm-addon-fit"
 import "xterm/css/xterm.css"
@@ -9,6 +11,7 @@ export default function WebTerm() {
     const term = useRef<Terminal | null>(null)
     const fitAddon = useRef<FitAddon | null>(null)
     const [currentCommand, setCurrentCommand] = useState<string>("")
+    const router = useRouter()
 
     useEffect(() => {
         if (terminalRef.current && !term.current) {
@@ -16,93 +19,110 @@ export default function WebTerm() {
             term.current = new Terminal({
                 cursorBlink: true,
                 theme: { background: "transparent", foreground: "#fff" },
-                scrollback: 0, // Limited scrollback
+                scrollback: 0, // Limit scrollback
                 convertEol: true,
                 fontFamily: "'JetBrains Mono', monospace",
                 fontSize: 13,
             })
 
             // Add the fit addon
-            fitAddon.current = new FitAddon();
-            term.current.loadAddon(fitAddon.current);
+            fitAddon.current = new FitAddon()
+            term.current.loadAddon(fitAddon.current)
 
             term.current.open(terminalRef.current)
 
             // Initial greeting
-            term.current.writeln("\r\n\x1b[1;32mWelcome to Terminal\x1b[0m");
-            term.current.writeln("\x1b[90mType 'help' to see available commands\x1b[0m\r\n");
-            promptUser();
+            term.current.writeln("\r\n\x1b[1;32mWelcome to Terminal\x1b[0m")
+            term.current.writeln("\x1b[90mType 'help' to see available commands\x1b[0m\r\n")
+            promptUser()
 
             // Current command buffer
-            let commandBuffer = "";
+            let commandBuffer = ""
 
             // Handle terminal input
             term.current.onData((data) => {
-                const code = data.charCodeAt(0);
+                const code = data.charCodeAt(0)
 
                 // Handle special keys
                 if (code === 13) { // Enter key
                     // Process the command
-                    processCommand(commandBuffer);
-                    commandBuffer = "";
-                    setCurrentCommand("");
+                    processCommand(commandBuffer)
+                    commandBuffer = ""
+                    setCurrentCommand("")
                 } else if (code === 127 || code === 8) { // Backspace
                     // Remove the last character from the buffer if it exists
                     if (commandBuffer.length > 0) {
-                        commandBuffer = commandBuffer.substring(0, commandBuffer.length - 1);
-                        setCurrentCommand(commandBuffer);
+                        commandBuffer = commandBuffer.substring(0, commandBuffer.length - 1)
+                        setCurrentCommand(commandBuffer)
                         // Move cursor back and clear the character
-                        term.current?.write("\b \b");
+                        term.current?.write("\b \b")
                     }
                 } else if (code < 32) {
                     // Ignore other control characters
                 } else {
                     // Add to command buffer and echo to terminal
-                    commandBuffer += data;
-                    setCurrentCommand(commandBuffer);
-                    term.current?.write(data);
+                    commandBuffer += data
+                    setCurrentCommand(commandBuffer)
+                    term.current?.write(data)
                 }
-            });
+            })
         }
     }, [])
 
     // Prompt function
     const promptUser = () => {
-        term.current?.write("\x1b[38;2;57;255;20muser@console\x1b[0m:\x1b[1;34m~\x1b[0m$ ");
+        term.current?.write("\x1b[38;2;57;255;20muser@console\x1b[0m:\x1b[1;34m~\x1b[0m$ ")
     }
-        ;
+
 
     // Process commands
     const processCommand = (cmd: string) => {
-        if (!term.current) return;
+        if (!term.current) return
 
-        term.current.writeln("");
-        const command = cmd.trim().toLowerCase();
+        term.current.writeln("")
+        const command = cmd.trim().toLowerCase()
 
         if (command === "") {
             // Empty command, just show prompt again
         } else if (command === "help") {
-            term.current.writeln("\x1b[38;2;255;255;255mAvailable commands:\x1b[0m"); // White title
-            term.current.writeln("  \x1b[38;2;255;255;100mhelp\x1b[0m        - Show this help message");
-            term.current.writeln("  \x1b[38;2;255;255;100mclear\x1b[0m       - Clear the terminal");
-            term.current.writeln("  \x1b[38;2;255;255;100mecho [text]\x1b[0m  - Echo text to the terminal");
-            term.current.writeln("  \x1b[38;2;255;255;100mdate\x1b[0m        - Show current date and time");
-            term.current.writeln("  \x1b[38;2;255;255;100muname\x1b[0m       - Show system information");
+            term.current.writeln("\n\x1b[38;2;255;255;255mAvailable commands:\x1b[0m"); // White title
+            term.current.writeln("  \x1b[38;2;255;255;100mhelp\x1b[0m        - Show this help message")
+            term.current.writeln("  \x1b[38;2;255;255;100mclear\x1b[0m       - Clear the terminal")
+            term.current.writeln("  \x1b[38;2;255;255;100mecho [text]\x1b[0m  - Echo text to the terminal")
+            term.current.writeln("  \x1b[38;2;255;255;100mdate\x1b[0m        - Show current date and time")
+            term.current.writeln("  \x1b[38;2;255;255;100muname\x1b[0m       - Show system information")
+            term.current.writeln("\n  \x1b[38;2;255;255;100mabout\x1b[0m       - Go to about page")
+            term.current.writeln("  \x1b[38;2;255;255;100mprojects\x1b[0m    - Browse my projects")
+            term.current.writeln("  \x1b[38;2;255;255;100mskills\x1b[0m      - Check out my skills")
+            term.current.writeln("  \x1b[38;2;255;255;100m.config\x1b[0m     - Open my config files")
+            term.current.writeln("  \x1b[38;2;255;255;100mcontact\x1b[0m     - Get in touch with me\n")
+
+
         } else if (command === "clear") {
-            term.current.reset();
+            term.current.reset()
         } else if (command.startsWith("echo ")) {
-            const text = cmd.substring(5);
+            const text = cmd.substring(5)
             term.current.writeln(`\x1b[38;2;255;255;255m${text}\x1b[0m`); // White output
         } else if (command === "date") {
             term.current.writeln(`\x1b[38;2;255;255;255m${new Date().toString()}\x1b[0m`); // White date output
         } else if (command === "uname") {
             term.current.writeln("\x1b[38;2;255;255;255mHack OS v1.0 running on Web Browser\x1b[0m"); // White system info
+        } else if (command === "about") {
+            router.push("/about")
+        } else if (command === "projects") {
+            router.push("/projects")
+        } else if (command === "skills") {
+            router.push("/skills")
+        } else if (command === ".config") {
+            router.push("/dotfiles")
+        } else if (command === "contact") {
+            router.push("/contact")
         } else {
             term.current.writeln(`\x1b[38;2;255;50;50mCommand not found: ${command}\x1b[0m`); // Red error
         }
 
-        promptUser();
-    };
+        promptUser()
+    }
 
     return (
         <div className="fixed inset-0 flex items-center justify-center">
@@ -123,31 +143,31 @@ export default function WebTerm() {
                     {/* Hide Scrollbars */}
                     <style jsx>{`
                     :global(.xterm) {
-                        background-color: transparent !important;
+                        background-color: transparent !important
                     }
                     :global(.xterm-viewport) {
-                        background-color: transparent !important;
+                        background-color: transparent !important
                     }
                     :global(.xterm-screen) {
-                        background-color: transparent !important;
+                        background-color: transparent !important
                     }
                     div::-webkit-scrollbar {
-                        display: none;
+                        display: none
                     }
                     :global(.xterm-viewport::-webkit-scrollbar) {
-                        display: none !important;
+                        display: none !important
                     }
                     :global(.xterm-viewport) {
-                        scrollbar-width: none !important;
-                        -ms-overflow-style: none !important;
+                        scrollbar-width: none !important
+                        -ms-overflow-style: none !important
                     }
                     :global(.xterm) {
-                        padding-top: 0 !important;
+                        padding-top: 0 !important
                     }
             `}</style>
 
                 </div>
             </div>
         </div>
-    );
+    )
 }
