@@ -64,7 +64,7 @@ export default function ProjectsPage() {
         <h1 className="text-3xl font-bold text-emerald-500 mb-8">My Projects</h1>
 
         <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-4">Featured Projects</h2>
+          <h2 className="text-xl text-white font-semibold mb-4">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects
               .filter((p) => p.featured)
