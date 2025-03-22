@@ -319,7 +319,7 @@ font="Inter"
                     </CardContent>
                 </Card>
 
-                <Tabs defaultValue="neovim" className="w-full">
+                <Tabs defaultValue="Neovim Configuration" className="w-full">
                     <TabsList className="bg-emerald-600/70 backdrop-blur-sm drop-shadow-lg mb-6 rounded-bl-none rounded-tr-none">
                         {dotfiles.map((dotfile, index) => (
                             <TabsTrigger className="data-[state=active]:bg-emerald-500 rounded-bl-none rounded-tr-none" key={index} value={dotfile.name.toLowerCase().replace(/\s+/g, "-")}>
