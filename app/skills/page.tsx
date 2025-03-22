@@ -24,8 +24,9 @@ export default function SkillsPage() {
         ],
         embedded: [
             { name: "C", level: 99 },
+            { name: "C++", level: 95 },
             { name: "Lua", level: 85 },
-            { name: "Zig", level: 80 },
+            { name: "Zig", level: 60 },
         ],
         databases: [
             { name: "PostgreSQL", level: 90 },
@@ -83,9 +84,9 @@ export default function SkillsPage() {
                 <span className="font-medium">{skill.name}</span>
                 <span className="text-sm text-muted-foreground">{skill.level}%</span>
             </div>
-            <div className="h-2 bg-muted rounded-full overflow-hidden">
+            <div className="h-2 bg-white/10  backdrop-blur-sm rounded-full overflow-hidden">
                 <div
-                    className="h-full bg-emerald-900 transition-all duration-500 ease-out rounded-full"
+                    className="h-full bg-emerald-600 transition-all duration-500 ease-out rounded-full"
                     style={{ width: `${skill.level}%` }}
                 ></div>
             </div>
@@ -95,12 +96,12 @@ export default function SkillsPage() {
     const renderSkillCard = (category: string) => {
         const categoryKey = category as keyof typeof skills
         return (
-            <Card key={category} className="bg-white/10 backdrop-blur-sm h-full">
-                <CardHeader className="text-emerald-700 flex flex-row items-center gap-2 pb-2">
+            <Card key={category} className="bg-black/10 backdrop-blur-sm h-full border border-emerald-800">
+                <CardHeader className="text-emerald-500 flex flex-row items-center gap-2 pb-2">
                     {categoryIcons[categoryKey]}
                     <h3 className="font-semibold text-lg">{categoryNames[categoryKey]}</h3>
                 </CardHeader>
-                <CardContent>{skills[categoryKey].map(renderSkillBar)}</CardContent>
+                <CardContent className="text-gray-300">{skills[categoryKey].map(renderSkillBar)}</CardContent>
             </Card>
         )
     }
@@ -108,19 +109,24 @@ export default function SkillsPage() {
     return (
         <main className="flex min-h-screen flex-col items-center p-4 relative overflow-hidden">
             <div className="z-10 w-full max-w-6xl mx-auto mt-16">
-                <Card className="bg-white/10 backdrop-blur-sm mb-8">
-                    <CardHeader className="text-emerald-700 text-2xl font-bold">My Skills</CardHeader>
+                <Card className="bg-black/20 backdrop-blur-md border border-emerald-700 shadow-lg rounded-xl p-4 mb-8">
+                    <CardHeader className="text-emerald-400 text-2xl font-semibold tracking-wide">
+                        My Skills
+                    </CardHeader>
                     <CardContent>
-                        <p className="mb-4">
+                        <p className="mb-6 text-gray-300 leading-relaxed">
                             I have expertise across various domains of software development, from frontend and backend technologies to
                             embedded systems, security, and game development. Below is a visualization of my technical skills and
                             proficiency levels.
                         </p>
 
-                        <div className="flex flex-wrap gap-2 mb-6">
+                        <div className="flex flex-wrap gap-3 mb-4">
                             <Button
-                                className={`${activeCategory === "all" ? "bg-emerald-900 text-white" : "bg-emerald-800 text-white"
-                                    } hover:bg-emerald-900`}
+                                type="button"
+                                className={`px-4 py-2 text-sm font-medium transition-all rounded-lg ${activeCategory === "all"
+                                    ? "bg-emerald-800 text-white shadow-md"
+                                    : "bg-emerald-600 text-white hover:bg-emerald-700"
+                                    }`}
                                 onClick={() => setActiveCategory("all")}
                             >
                                 All Skills
@@ -128,8 +134,10 @@ export default function SkillsPage() {
                             {Object.keys(skills).map((category) => (
                                 <Button
                                     key={category}
-                                    className={`flex items-center gap-2 ${activeCategory === category ? "bg-emerald-900 text-white" : "bg-emerald-800 text-white"
-                                        } hover:bg-emerald-900`}
+                                    className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-all rounded-lg ${activeCategory === category
+                                        ? "bg-emerald-800 text-white shadow-md"
+                                        : "bg-emerald-600 text-white hover:bg-emerald-700"
+                                        }`}
                                     onClick={() => setActiveCategory(category)}
                                 >
                                     {categoryIcons[category as keyof typeof categoryIcons]}
@@ -139,7 +147,6 @@ export default function SkillsPage() {
                         </div>
                     </CardContent>
                 </Card>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {activeCategory === "all" ? Object.keys(skills).map(renderSkillCard) : renderSkillCard(activeCategory)}
                 </div>

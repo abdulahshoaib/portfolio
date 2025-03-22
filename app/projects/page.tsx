@@ -69,7 +69,7 @@ export default function ProjectsPage() {
             {projects
               .filter((p) => p.featured)
               .map((project, index) => (
-                <Card key={index} className="bg-black/10 backdrop-blur-sm overflow-hidden flex flex-col">
+                <Card key={index} className="bg-black/10 backdrop-blur-sm overflow-hidden flex flex-col border border-emerald-800">
                   <CardHeader>
                     <CardTitle className="text-emerald-500">{project.name}</CardTitle>
                     <CardDescription className="text-muted-foreground">{project.description}</CardDescription>
@@ -110,7 +110,7 @@ export default function ProjectsPage() {
             {projects
               .filter((p) => !p.featured)
               .map((project, index) => (
-                <Card key={index} className="bg-black/10 backdrop-blur-sm overflow-hidden flex flex-col">
+                <Card key={index} className="bg-black/10 backdrop-blur-sm overflow-hidden flex flex-col border-emerald-800">
                   <CardHeader>
                     <CardTitle className="text-emerald-500">{project.name}</CardTitle>
                     <CardDescription className="text-muted-foreground">{project.description}</CardDescription>

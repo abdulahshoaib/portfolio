@@ -12,8 +12,9 @@ export default function DotfilesPage() {
                 "My custom Neovim setup with Lazy, LSP, Treesitter, and various plugins for a modern development experience.",
             language: "lua",
             github: "https://github.com/WhoisCipher/nvim-config",
-            preview: `-- Example from init.lua
-    require("setup.remap")
+            preview: `  -- Example from init.lua
+
+require("setup.remap")
 require("setup.set")
 require("setup.lazy_init")
 
@@ -258,11 +259,11 @@ interval=3
       `,
         },
         {
-         name: "betterlockscreen",
-         description: "A lockscreen better than the i3lock that provides more customization power",
-         language: "config",
-         github: "https://github.com/WhoisCipher/betterlockscreen",
-        preview:`wallpath="$HOME/Pictures/wallpaper.jpg"
+            name: "betterlockscreen",
+            description: "A lockscreen better than the i3lock that provides more customization power",
+            language: "config",
+            github: "https://github.com/WhoisCipher/betterlockscreen",
+            preview: `wallpath="$HOME/Pictures/wallpaper.jpg"
 blur_strength=0.3
 dim_strength=0.6
 locktext="Password"
@@ -275,8 +276,8 @@ font="Inter"
         <main className="flex min-h-screen flex-col items-center p-4 relative overflow-hidden">
             <div className="z-10 w-full max-w-6xl mx-auto mt-16">
                 <div className="flex items-center gap-3 mb-8">
-                    <h1 className="text-3xl font-bold text-emerald-800">.DotFiles</h1>
-                    <Button variant="outline" size="sm" asChild className="bg-emerald-800/30 border-none  backdrop-blur-xs hover:bg-emerald-800 hover:backdrop-blur-md">
+                    <h1 className="text-3xl font-bold text-emerald-500">.DotFiles</h1>
+                    <Button variant="outline" size="sm" asChild className="bg-emerald-500 border-none  backdrop-blur-xs hover:bg-emerald-600">
                         <Link href="https://github.com/WhoisCipher/" target="_blank">
                             <Github className="mr-2 h-4 w-4" />
                             View on GitHub
@@ -284,33 +285,33 @@ font="Inter"
                     </Button>
                 </div>
 
-                <Card className="bg-white/10 backdrop-blur-sm mb-8">
-                    <CardHeader className="text-xl font-semibold">My Development Environment</CardHeader>
+                <Card className="bg-black/10 backdrop-blur-sm mb-8 border-emerald-800">
+                    <CardHeader className="text-gray-200 text-xl font-semibold">My Development Environment</CardHeader>
                     <CardContent>
-                        <p className="mb-4">
+                        <p className="mb-4 text-muted-foreground">
                             These are my personal dotfiles that I use to configure my development environment. Feel free to explore,
                             fork, and adapt them to your own workflow.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                            <div className="bg-emerald-800/10 backdrop-blur-sm p-4 rounded-lg flex items-center gap-3">
-                                <Terminal className="h-5 w-5 text-emerald-800" />
+                            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg flex items-center gap-3">
+                                <Terminal className="h-5 w-5 text-emerald-500" />
                                 <div>
-                                    <h3 className="font-medium">Shell</h3>
+                                    <h3 className="font-medium text-emerald-500">Shell</h3>
                                     <p className="text-sm text-muted-foreground">Zsh + Oh My Zsh</p>
                                 </div>
                             </div>
-                            <div className="bg-emerald-800/10 backdrop-blur-sm p-4 rounded-lg flex items-center gap-3">
-                                <Code className="h-5 w-5 text-emerald-800" />
+                            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg flex items-center gap-3">
+                                <Code className="h-5 w-5 text-emerald-500" />
                                 <div>
-                                    <h3 className="font-medium">Editor</h3>
+                                    <h3 className="text-emerald-500 font-medium">Editor</h3>
                                     <p className="text-sm text-muted-foreground">Neovim + Custom Plugins</p>
                                 </div>
                             </div>
-                            <div className="bg-emerald-800/10 backdrop-blur-sm p-4 rounded-lg flex items-center gap-3">
-                                <Monitor className="h-5 w-5 text-emerald-800" />
+                            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg flex items-center gap-3">
+                                <Monitor className="h-5 w-5 text-emerald-500" />
                                 <div>
-                                    <h3 className="font-medium">Window Manager</h3>
+                                    <h3 className="font-medium text-emerald-500">Window Manager</h3>
                                     <p className="text-sm text-muted-foreground">i3wm + i3blocks </p>
                                 </div>
                             </div>
@@ -319,9 +320,9 @@ font="Inter"
                 </Card>
 
                 <Tabs defaultValue="neovim" className="w-full">
-                    <TabsList className="bg-emerald-800/30 backdrop-blur-sm drop-shadow-lg mb-6">
+                    <TabsList className="bg-emerald-600/70 backdrop-blur-sm drop-shadow-lg mb-6 rounded-bl-none rounded-tr-none">
                         {dotfiles.map((dotfile, index) => (
-                            <TabsTrigger key={index} value={dotfile.name.toLowerCase().replace(/\s+/g, "-")}>
+                            <TabsTrigger className="data-[state=active]:bg-emerald-500 rounded-bl-none rounded-tr-none" key={index} value={dotfile.name.toLowerCase().replace(/\s+/g, "-")}>
                                 {dotfile.name}
                             </TabsTrigger>
                         ))}
@@ -329,13 +330,13 @@ font="Inter"
 
                     {dotfiles.map((dotfile, index) => (
                         <TabsContent key={index} value={dotfile.name.toLowerCase().replace(/\s+/g, "-")}>
-                            <Card className="bg-white/10 backdrop-blur-sm">
+                            <Card className="bg-black/10 backdrop-blur-sm border border-emerald-800">
                                 <CardHeader className="flex flex-row items-center justify-between">
                                     <div>
-                                        <h2 className="text-xl font-semibold text-emerald-800">{dotfile.name}</h2>
+                                        <h2 className="text-xl font-semibold text-emerald-500">{dotfile.name}</h2>
                                         <p className="text-sm text-muted-foreground">{dotfile.description}</p>
                                     </div>
-                                    <Button variant="outline" size="sm" asChild className="bg-emerald-800/30 backdrop-blur-md border-none hover:bg-emerald-800">
+                                    <Button variant="outline" size="sm" asChild className="bg-emerald-400 backdrop-blur-md border-none hover:bg-emerald-600">
                                         <Link href={dotfile.github} target="_blank">
                                             <Github className="mr-2 h-4 w-4" />
                                             View Files
@@ -344,7 +345,7 @@ font="Inter"
                                 </CardHeader>
                                 <CardContent>
                                     <div className="glass-card p-4 rounded-lg overflow-x-auto">
-                                        <pre className="text-sm">
+                                        <pre className="text-sm text-slate-200">
                                             <code>{dotfile.preview}</code>
                                         </pre>
                                     </div>
