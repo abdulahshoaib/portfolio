@@ -34,7 +34,7 @@ export default function ContactPage() {
                                         target="_blank"
                                         className="text-white hover:text-green-500 transition-colors"
                                     >
-                                        github.com/WhoisCipher
+                                        github.com/abdulahshoaib
                                     </Link>
                                 </div>
 
