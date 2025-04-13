@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export default function ProjectsPage() {
     const projects = [
-        {
+        /*{
             name: "Distributed Database System",
             description:
                 "A high-performance distributed database system built with Go, supporting horizontal scaling and fault tolerance.",
@@ -23,24 +23,24 @@ export default function ProjectsPage() {
             github: "#",
             demo: "#",
             featured: true,
-        },
+        },*/
         {
-            name: "Full-Stack Notes API",
+            name: "Notes",
             description: "A public Notes API project using Go and Fiber for the backend, with a Next.js and React frontend.",
             tech: ["Go", "Fiber", "PostgreSQL", "Next.js", "React"],
-            github: "#",
-            demo: "#",
+            github: "https://github.com/abdullahshoaib/notes-api",
+            demo: null,
             featured: true,
         },
         {
-            name: "Full-Stack Slack Clone",
-            description: "A real-time Slack clone built using Express, Node.js, TailwindCSS, Next.js, and React with MS-SQL Server as the database.",
-            tech: ["Express", "Node.js", "TailwindCSS", "Next.js", "React", "MS-SQL Server"],
-            github: "#",
+            name: "Threadify",
+            description: "A GitHub-integrated team management system with role-based access control, goal tracking, and commit reviews.",
+            tech: ["Next.js", "React", "Express.js", "Node.js", "MS-SQL Server", "GitHub OAuth"],
+            github: "https://github.com/abdullahshoaib/treadify",
             demo: "#",
             featured: true,
         },
-        {
+        /*{
             name: "Embedded Systems Project",
             description: "A high-performance software written in Zig for low-level system operations.",
             tech: ["Zig"],
@@ -55,7 +55,7 @@ export default function ProjectsPage() {
             github: "#",
             demo: "#",
             featured: false,
-        },
+        },*/
         {
             name: "PassCrypt",
             description: "A secure password manager built in Go, focused on cybersecurity and encryption.",
@@ -65,14 +65,38 @@ export default function ProjectsPage() {
             featured: true,
         },
         {
+            name: "Tetris ",
+            description: "A modern Tetris clone implemented in C++ using the Raylib library, featuring smooth animations, responsive controls, and clean retro-style graphics.",
+            tech: ["C++", "Raylib", "Game Development"],
+            github: "https://github.com/abdulahshoaib/Tetris",
+            demo: null,
+            featured: true
+        },
+        {
+            name: "Chess Masters",
+            description: "A fully-functional chess game built with C++ and SFML, complete with legal move validation, drag-and-drop interaction, and a polished 2D board interface.",
+            tech: ["C++", "SFML", "Game Development"],
+            github: "https://github.com/abdulahshoaib/ChessMasters",
+            demo: null,
+            featured: false
+        },
+        {
             name: "MazeRunner",
             description: "A classic 2D game written in x86 Assembly, focusing on optimizing low-level input handling.",
             tech: ["x86 Assembly", "BIOS", "Interrupts"],
-            github: "#",
+            github: "https://github.com/abdullahshoaib/MazeRunner",
             demo: null,
-            featured: false,
+            featured: true,
         },
         {
+            name: "HTML Tag Validator (C++)",
+            description: "A command-line utility written in C++ that parses and validates HTML code by checking for proper tag nesting and matching. Supports both file and inline string inputs.",
+            tech: ["C++", "Stack", "CLI", "Parsing"],
+            github: "https://github.com/abdullahshoaib/HTML-Parser",
+            demo: null,
+            featured: false
+        },
+        /*{
             name: "DevOps Automation Toolkit",
             description: "A collection of tools and scripts for automating CI/CD pipelines and infrastructure management.",
             tech: ["Bash", "Docker", "Kubernetes", "Terraform"],
@@ -95,7 +119,7 @@ export default function ProjectsPage() {
             github: "#",
             demo: null,
             featured: false,
-        }
+        } */
     ]
 
     return (
