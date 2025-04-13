@@ -30,7 +30,7 @@ export default function ContactPage() {
                                         <Github className="h-5 w-5 text-green-500" />
                                     </div>
                                     <Link
-                                        href="https://github.com/WhoisCipher"
+                                        href="https://github.com/abdulahshoaib"
                                         target="_blank"
                                         className="text-white hover:text-green-500 transition-colors"
                                     >
