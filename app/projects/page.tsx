@@ -25,11 +25,11 @@ export default function ProjectsPage() {
             featured: true,
         },*/
         {
-            name: "Threadify",
+            name: "Treadify",
             description: "A GitHub-integrated team management system with role-based access control, goal tracking, and commit reviews.",
             tech: ["Next.js", "React", "Express.js", "Node.js", "MS-SQL Server", "GitHub OAuth"],
             github: "https://github.com/abdulahshoaib/treadify",
-                demo: "#",
+                demo: "https://treadify.vercel.app/",
             featured: true,
         },
         {
