@@ -30,8 +30,8 @@ export default function ContactPage() {
             } else {
                 toast.error('Failed to send message.')
             }
-        } catch (err) {
-            toast.error('An error occurred.')
+        } catch (err: any) {
+            toast.error(err.message)
         }
     }
 
