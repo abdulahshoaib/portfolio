@@ -1,11 +1,41 @@
+"use client"
+
+import { useState } from "react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Mail, Github, Linkedin, Instagram, Send } from "lucide-react"
 import Link from "next/link"
+import { toast } from 'sonner'
 
 export default function ContactPage() {
+    const [message, setMessage] = useState({
+        name: '',
+        email: '',
+        message: '',
+    })
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(message),
+            })
+
+            if (res.ok) {
+                toast.success('Message sent successfully!')
+            } else {
+                toast.error('Failed to send message.')
+            }
+        } catch (err) {
+            toast.error('An error occurred.')
+        }
+    }
+
+
     return (
         <main className="flex min-h-screen flex-col items-center p-4 relative overflow-hidden">
             <div className="z-10 w-full max-w-4xl mx-auto mt-16">
@@ -20,8 +50,8 @@ export default function ContactPage() {
                                     <div className="bg-black/10 backdrop-blur-sm p-2 rounded-full">
                                         <Mail className="h-5 w-5 text-green-500" />
                                     </div>
-                                    <Link href="mailto:contact@hackabdullah.site" className="text-white hover:text-green-500 transition-colors">
-                                        contact@hackabdullah.site
+                                    <Link href="mailto:khan.abdullah.shoaib@gmail.com" className="text-white hover:text-green-500 transition-colors">
+                                        khan.abdullah.shoaib@gmail.com
                                     </Link>
                                 </div>
 
@@ -70,26 +100,48 @@ export default function ContactPage() {
                     <Card className="bg-black/10 backdrop-blur-sm border-emerald-800">
                         <CardHeader className="text-xl font-semibold text-white">Send a Message</CardHeader>
                         <CardContent>
-                            <form className="space-y-4">
+                            <form
+                                className="space-y-4"
+                                onSubmit={handleSubmit}
+                            >
                                 <div className="space-y-2">
                                     <label htmlFor="name" className="text-sm font-medium text-slate-300">
                                         Name
                                     </label>
-                                    <Input id="name" className="mt-2 bg-white/10 text-green-300 backdrop-blur-sm border-none" placeholder="Your name" />
+                                    <Input
+                                        id="name"
+                                        value={message.name}
+                                        onChange={(e) => setMessage({ ...message, name: e.target.value })}
+                                        className="mt-2 bg-white/10 text-green-300 backdrop-blur-sm border-none"
+                                        placeholder="Your name"
+                                    />
                                 </div>
                                 <div className="space-y-2">
                                     <label htmlFor="email" className="text-sm font-medium text-slate-300">
                                         Email
                                     </label>
-                                    <Input id="email" type="email" className=" mt-2 bg-white/10 text-green-300 backdrop-blur-sm border-none" placeholder="Your email" />
+                                    <Input
+                                        id="email"
+                                        type="email"
+                                        value={message.email}
+                                        onChange={(e) => setMessage({ ...message, email: e.target.value })}
+                                        className=" mt-2 bg-white/10 text-green-300 backdrop-blur-sm border-none" placeholder="Your email" />
                                 </div>
                                 <div className="space-y-2">
                                     <label htmlFor="message" className="text-sm font-medium text-slate-300">
                                         Message
                                     </label>
-                                    <Textarea id="message" className="mt-2 bg-white/10 text-green-300 backdrop-blur-sm border-none min-h-[80px]" placeholder="Your message" />
+                                    <Textarea
+                                        id="message"
+                                        value={message.message}
+                                        onChange={(e) => setMessage({ ...message, message: e.target.value })}
+                                        className="mt-2 bg-white/10 text-green-300 backdrop-blur-sm border-none min-h-[80px]"
+                                        placeholder="Your message" />
                                 </div>
-                                <Button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700">
+                                <Button
+                                    type="submit"
+                                    className="w-full bg-emerald-600 hover:bg-emerald-700"
+                                >
                                     <Send className="mr-2 h-4 w-4" />
                                     Send Message
                                 </Button>

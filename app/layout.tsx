@@ -4,6 +4,7 @@ import "./globals.css";
 import "@fontsource/jetbrains-mono";
 import MatrixBackground from "@/components/MatrixBackground"
 import Navbar from '@/components/Navbar'
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
                 <MatrixBackground />
                 <Navbar />
                 {children}
+                <Toaster />
             </body>
         </html>
     );
