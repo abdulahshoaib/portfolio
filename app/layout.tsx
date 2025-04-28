@@ -35,7 +35,7 @@ export default function RootLayout({
                 <MatrixBackground />
                 <Navbar />
                 {children}
-                <Toaster />
+                <Toaster theme="dark" richColors={true} />
             </body>
         </html>
     );
