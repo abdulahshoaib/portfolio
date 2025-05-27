@@ -1,6 +1,10 @@
 import { NextResponse } from 'next/server';
+import { loadEnvConfig } from '@next/env'
 
-const WEBHOOK_URL = "https://discord.com/api/webhooks/1366327864504614952/cv4hqemt1nonBymde6qk9RSc_L2qRQge1e6uUTG_WUnOkFi-TnCzz9u_PAPyhC_zz_j0";
+const projectDir = process.cwd()
+loadEnvConfig(projectDir)
+
+const WEBHOOK_URL = process.env.WEB_HOOK || "";
 
 // Named export for POST
 export async function POST(req: Request) {
