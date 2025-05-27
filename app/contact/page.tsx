@@ -28,7 +28,7 @@ export default function ContactPage() {
             if (res.ok) {
                 toast.success('Message sent successfully!')
             } else {
-                toast.error('Failed to send message.')
+                toast.error('I exposed my discord web-hook :)\nworking to fix it')
             }
         } catch (err: any) {
             toast.error(err.message)
