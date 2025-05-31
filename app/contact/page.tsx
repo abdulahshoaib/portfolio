@@ -10,6 +10,7 @@ import Link from "next/link"
 import { toast } from 'sonner'
 
 export default function ContactPage() {
+    const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState({
         name: '',
         email: '',
@@ -18,6 +19,7 @@ export default function ContactPage() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        setLoading(true)
         try {
             const res = await fetch('/api/contact', {
                 method: 'POST',
@@ -30,8 +32,15 @@ export default function ContactPage() {
             } else {
                 toast.error('I exposed my discord web-hook :)\nworking to fix it')
             }
+            setMessage({
+                name: "",
+                email: "",
+                message: "",
+            })
         } catch (err: any) {
             toast.error(err.message)
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -139,11 +148,12 @@ export default function ContactPage() {
                                         placeholder="Your message" />
                                 </div>
                                 <Button
+                                    disabled={loading}
                                     type="submit"
                                     className="cursor-pointer w-full bg-emerald-600 hover:bg-emerald-700"
                                 >
                                     <Send className="mr-2 h-4 w-4" />
-                                    Send Message
+                                    {loading ? 'Sending...' : 'Send Message'}
                                 </Button>
                             </form>
                         </CardContent>
