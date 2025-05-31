@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from 'next/font/local'
 import "./globals.css";
 import "@fontsource/jetbrains-mono";
 import MatrixBackground from "@/components/MatrixBackground"
 import Navbar from '@/components/Navbar'
 import { Toaster } from "sonner";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-});
+const myFont = localFont({
+    src: '../public/VictorMonoNFMNerdFont-Regular.ttf'
+})
 
 export const metadata: Metadata = {
     title: "Abdullah's Portfolio",
@@ -30,8 +24,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`} >
+        <html lang="en" className={myFont.className}>
+            <body className="antialiased bg-black" >
                 <MatrixBackground />
                 <Navbar />
                 {children}

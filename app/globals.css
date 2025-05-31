@@ -3,6 +3,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+    font-family: "VictorMono NF";
+    src: URL('../public/VictorMonoNFMNerdFont-Regular.ttf') format(truetype);
+    font-weight: 500;
+    font-style: normal;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

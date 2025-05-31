@@ -21,7 +21,7 @@ export default function WebTerm() {
                 theme: { background: "transparent", foreground: "#fff" },
                 scrollback: 0, // Limit scrollback
                 convertEol: true,
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: "'VictorMono NF', monospace",
                 fontSize: 13,
             })
 
