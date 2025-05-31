@@ -6,30 +6,12 @@ import Link from "next/link"
 
 export default function ProjectsPage() {
     const projects = [
-        /*{
-            name: "Distributed Database System",
-            description:
-                "A high-performance distributed database system built with Go, supporting horizontal scaling and fault tolerance.",
-            tech: ["Go", "PostgreSQL", "Docker", "Kubernetes"],
-            github: "#",
-            demo: "#",
-            featured: true,
-        },
-        {
-            name: "Real-time Collaboration Platform",
-            description:
-                "A collaborative platform for teams with real-time document editing, chat, and project management features.",
-            tech: ["Next.js", "TypeScript", "WebSockets", "MongoDB"],
-            github: "#",
-            demo: "#",
-            featured: true,
-        },*/
         {
             name: "Treadify",
             description: "A GitHub-integrated team management system with role-based access control, goal tracking, and commit reviews.",
             tech: ["Next.js", "React", "Express.js", "Node.js", "MS-SQL Server", "GitHub OAuth"],
             github: "https://github.com/abdulahshoaib/treadify",
-                demo: "https://treadify.vercel.app/",
+            demo: "https://treadify.vercel.app/",
             featured: true,
         },
         {
@@ -40,22 +22,6 @@ export default function ProjectsPage() {
             demo: null,
             featured: true,
         },
-        /*{
-            name: "Embedded Systems Project",
-            description: "A high-performance software written in Zig for low-level system operations.",
-            tech: ["Zig"],
-            github: "#",
-            demo: null,
-            featured: false,
-        },
-        {
-            name: "Secure Messaging App",
-            description: "End-to-end encrypted messaging application with focus on privacy and security.",
-            tech: ["React Native", "Node.js", "Cryptography", "SQLite"],
-            github: "#",
-            demo: "#",
-            featured: false,
-        },*/
         {
             name: "PassCrypt",
             description: "A secure password manager built in Go, focused on cybersecurity and encryption.",
@@ -89,37 +55,29 @@ export default function ProjectsPage() {
             featured: true,
         },
         {
+            name: "Operating Systems Reference Website",
+            description: "Operating System Concepts & POSIX func syntax guideline for dummies like me",
+            tech: ["Hugo", "hextra", "docs"],
+            github: "https://github.com/abdulahshoaib/os",
+            demo: "https://os-ref.netlify.app",
+            featured: false
+        },
+        {
+            name: "wh!teboard",
+            description: "My own whiteboard for drawings and annotations coz other online whiteboards suck and don't have vim motions",
+            tech: ["HTML", "CSS", "JavaScript"],
+            github: "https://github.com/abdulahshoaib/whiteboard",
+            demo: null,
+            featured: false
+        },
+        {
             name: "HTML Tag Validator (C++)",
             description: "A command-line utility written in C++ that parses and validates HTML code by checking for proper tag nesting and matching. Supports both file and inline string inputs.",
             tech: ["C++", "Stack", "CLI", "Parsing"],
             github: "https://github.com/abdulahshoaib/HTML-Parser",
             demo: null,
             featured: false
-        },
-        /*{
-            name: "DevOps Automation Toolkit",
-            description: "A collection of tools and scripts for automating CI/CD pipelines and infrastructure management.",
-            tech: ["Bash", "Docker", "Kubernetes", "Terraform"],
-            github: "#",
-            demo: null,
-            featured: false,
-        },
-        {
-            name: "Tower Defense Game",
-            description: "A 2D tower defense game built with Zig, focusing on performance and efficient resource management.",
-            tech: ["Zig", "Raylib", "Game Development"],
-            github: "#",
-            demo: null,
-            featured: false,
-        },
-        {
-            name: "Self-Hosted File Sharing System",
-            description: "A lightweight file-sharing system built with Go, allowing users to securely transfer files over a network.",
-            tech: ["Go", "Fiber", "PostgreSQL"],
-            github: "#",
-            demo: null,
-            featured: false,
-        } */
+        }
     ]
 
     return (
