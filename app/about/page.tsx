@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { User, /raduationCap } from "lucide-react"
+import { User, GraduationCap } from "lucide-react"
 
 export default function AboutPage() {
     return (
