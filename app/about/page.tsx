@@ -14,13 +14,19 @@ export default function AboutPage() {
                     </CardHeader>
                     <CardContent className="space-y-4 text-gray-200">
                         <p>
-                            Hi there! I'm Abdullah, a computer and tech junkie. I have been using computers essentially as back as I can remember. I made my first website back in class 5, crazy that I think that this was about a decade ago, with the help of my father. Right then I knew this is the thing I can do for my entire life. Apart from that I have always been big on gaiming so the relation I've built with computers is a deep one.
+                            Hi there! I'm Abdullah — a computer and tech junkie through and through. I've been using computers for as long as I can remember. I built my first website back in 5th grade with my dad’s help — hard to believe that was over a decade ago. Even back then, I knew this was something I could see myself doing for the rest of my life. I’ve also always been big on gaming, so my connection with computers runs deep.
                         </p>
                         <p>
-                            I love to work on designing backends that work efficiently. I recently have been as working on build automation and deployment CI/CD, and network security. Hacking and cyber security has always been my key areas of interest. I did my CISSP mock course from KICS-UET. There I covered offensive security and aspects of ethical hacking. Over the past few years I have completely familiarized myself with the linux eco-system and even switched to it, using it as my daily driver. As for my frontend skills one could judge it off this website :) You can check out the techstack I'm fimiliar with on the skills page.
+                            These days, I love working on backend systems.  Lately, I’ve been diving into build automation, CI/CD pipelines, and network security. Cybersecurity and hacking have always been core interests of mine. I even took a CISSP mock course at KICS-UET, where I explored offensive security and the fundamentals of ethical hacking.
                         </p>
                         <p>
-                            Currently, I'm a sophomore at FAST NUCES, and I enjoy working with technologies like Go, Node, React, Docker, and Kubernetes. I also have become sort of a linux junkie configuring everything of my setup to the nth degree. Currently I am using Arch, with neovim as my IDE (yes I am in nvim writing this) and using ansible to install software updates on new releases of softwares I've built from source.
+                            Over the past few years, I’ve gone all-in on the Linux ecosystem — so much so that I’ve made it my daily driver. I’ve fully configured my system to suit my workflow. Right now, I’m running Arch Linux, using Neovim as my IDE (yep, I’m writing this in nvim), and handling software updates with Ansible for projects I’ve built from source.
+                        </p>
+                        <p>
+                            As for frontend work? You can judge it yourself from this website :) I’ve listed my tech stack on the Skills page if you’re curious.
+                        </p>
+                        <p>
+                            Currently, I’m a sophomore at FAST NUCES, and I love working with different technologies. I’ve become a bit of a Linux purist, constantly tweaking my setup to the nth degree — and honestly, I wouldn’t have it any other way.
                         </p>
                         <div className="pt-4">
                             <div className="flex text-emerald-500 space-x-3">
