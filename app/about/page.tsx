@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { User, GraduationCap } from "lucide-react"
+import { User, /raduationCap } from "lucide-react"
 
 export default function AboutPage() {
     return (
@@ -41,7 +41,6 @@ export default function AboutPage() {
                                 <div className="bg-white/10 p-3 rounded-md">
                                     <h4 className="font-semibold">High School Secondary Certificate, Engineering</h4>
                                     <p className="text-sm text-muted-foreground">Crecent Model High School, 2020-2022</p>
-                                    <p className="text-xs text-muted-foreground">Grade: A*</p>
                                 </div>
 
                             </div>
